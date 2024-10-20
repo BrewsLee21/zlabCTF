@@ -1,0 +1,64 @@
+/* variables */
+:root {
+    /* colors */
+    --uzlabina_orange: #F5832A;
+    --uzlabina_gray: #222222;
+    --navbar_item_gray: #313131;
+    --gray_on_hover: #4D4D4D;
+}
+
+/* general */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* navbar */
+.navbar {
+    height: 8rem;
+    width: 100%;
+    background-color: var(--uzlabina_gray);
+}
+#title {
+    display: flex;
+    align-items: center;
+    flex: 3;
+    background-color: inherit;
+}
+#navbar-logo-container {
+    text-decoration: none;
+}
+#navbar-logo-image {
+    transform: scale(0.75);
+}
+#navbar-logo-text {
+    align-self: center;
+    font-size: 6rem;
+    color: white;
+}
+
+.navbar-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: var(--navbar_item_gray);
+    transition: 0.5s background-color;
+
+    text-decoration: none;
+    font-size: 2rem;;
+    color: var(--uzlabina_orange);
+}
+.navbar-item:hover {
+    background-color: var(--gray_on_hover);
+}
+
+/* main */
+
+#main-container {
+
+}

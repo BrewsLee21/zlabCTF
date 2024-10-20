@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="../static/styles.css">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fonts.css')}}">
+
+<nav class="navbar flex-row">
+    <div id="title">
+        <a href="/" class="flex-row" id="navbar-logo-container">
+            <img src="{{url_for('static', filename='logo.svg')}}" alt="logo.svg could not be loaded..." id="navbar-logo-image">
+            <div id="navbar-logo-text" class="adlam-display-regular">zlabCTF</div>
+        </a>
+    </div>
+    <a href="/about" class="roboto-bold navbar-item">O mně</a>
+    <a href="/contact" class="roboto-bold navbar-item">Kontakt</a>
+    <a href="/ctf" class="roboto-bold navbar-item">CTF</a>
+</nav>
