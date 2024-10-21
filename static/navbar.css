@@ -1,0 +1,48 @@
+/* navbar */
+.navbar {
+    height: 8rem;
+    width: 100%;
+
+    background-color: var(--uzlabina_gray);
+}
+.navbar-container {
+    height: 100%;
+    width: 80%;
+    justify-content: space-between;
+
+    margin: 0 auto
+}
+.logo-link {
+    height: 100%;
+    width: auto;
+    text-decoration: none;
+    align-items: center;
+}
+.logo-link > img {
+    height: 90%;
+}
+.logo-link > div {
+    color: white;
+    font-size: 4rem;
+}
+.link {
+    width: 10rem;
+    background-color: var(--uzlabina_gray);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: var(--uzlabina_orange);
+
+    transition: background-color 0.5s;
+}
+
+.link:hover {
+    background-color: var(--gray_on_hover);
+}

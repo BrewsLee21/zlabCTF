@@ -1,0 +1,13 @@
+/* footer */
+.footer-container > div {
+    font-family: "Roboto Light";
+    color: white;
+}
+
+.footer-container {
+    height: 4rem;
+    background-color: var(--gray_on_hover);
+    justify-content: space-around;
+
+    align-items: center;
+}

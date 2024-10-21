@@ -2,6 +2,10 @@
 
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fonts.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main_content.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='cards.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='navbar.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='footer.css')}}">
 
 <html>
     <head>
@@ -10,12 +14,22 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body style="margin: 0;">
+    <body class="flex-col">
         {% include 'navbar.html' %}
 
-        <div id="main-container" class="flex-row">
-
-        </div>
+        <main class="main-container">
+            <div class="content-container flex-col">
+                <div class="slogan">
+                    <p class="slogan-text dancing-script-regular">Vytvořeno studentem nejen pro studenty</p>
+                    <hr>
+                </div>
+                {% include 'better_cards.html' %}
+            </div>
+        </main>
+        {% include 'footer.html' %}
     </body>
 </html>

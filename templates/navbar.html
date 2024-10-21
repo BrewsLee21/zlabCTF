@@ -1,15 +1,16 @@
-<link rel="stylesheet" href="../static/styles.css">
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='fonts.css')}}">
-
-<nav class="navbar flex-row">
-    <div id="title">
-        <a href="/" class="flex-row" id="navbar-logo-container">
-            <img src="{{url_for('static', filename='logo.svg')}}" alt="logo.svg could not be loaded..." id="navbar-logo-image">
-            <div id="navbar-logo-text" class="adlam-display-regular">zlabCTF</div>
-        </a>
+<nav class="navbar">
+    <div class="navbar-container flex-row">
+        <div class="logo-container">
+            <a href="" class="logo-link flex-row">
+                <img src="{{url_for('static', filename='logo.svg')}}" alt="logo.svg could not be loaded...">
+                <div class="sans-serif-bold">zlabCTF</div>
+            </a>
+        </div>
+        <div class="link-container flex-row">
+            <a href="/about" class="link">O Tvůrci</a>
+            <a href="/contact" class="link ">Kontakt</a>
+            <a href="/ctf" class="link">CTF&#9873;</a>
+            <a href="/login" class="link">Přihlásit Se</a>
+        </div>
     </div>
-    <a href="/about" class="roboto-bold navbar-item">O mně</a>
-    <a href="/contact" class="roboto-bold navbar-item">Kontakt</a>
-    <a href="/ctf" class="roboto-bold navbar-item">CTF</a>
 </nav>

@@ -1,0 +1,30 @@
+<div class="card-container flex-row">
+    <img src="{{url_for('static', filename='logo.svg')}}" alt="logo.svg could not be loaded" class="card-icon">
+    <div class="card-text flex-col">
+        <span class="card-title sans-serif-bold">zlabCTF</span>
+        <p>zlabCTF je CTF (<i>Capture The Flag</i>) stránka, vytvořená studentem 4. ročníku v rámci dlouhodobé maturitní práce</p>
+        <hr>
+        <p>Všechny úlohy na této stránce jsou zaměřeny na oblast <b>zabezpečení webových aplikací</b>, což je také název této maturitní práce</p>
+        <a  href="/ctf" class="orange-btn sans-serif-regular">Začít</a>
+
+    </div>
+</div>
+<div class="card-container flex-row">
+    <img src="{{url_for('static', filename='question.svg')}}" alt="github-mark.svg could not be loaded" class="card-icon">
+    <div class="card-text">
+        <span class="card-title sans-serif-bold">Co je to CTF?</span>
+        <p>CTF, neboli Capture The Flag (<i>Získej vlajku</i>)</p>
+        <p>je cvičení, ve kterém je za úkol nalézt nějaký textový řetězec, kterému se také říká vlajka (flag)</p>
+        <br>
+        <p>Taková vlajka může vypadat třeba takhle:</p>
+        <p><b>zlabCTF{vlajka_abc123}</b></p>
+    </div>
+</div>
+<div class="card-container flex-row">
+    <img src="{{url_for('static', filename='github-mark/github-mark.svg')}}" alt="github-mark.svg could not be loaded" class="card-icon">
+    <div class="card-text">
+        <span class="card-title sans-serif-bold">GitHub</span>
+        <p>Všechen kód tohoto projektu je veřejně k dispozici na GitHubu</p>
+        <span id="github-link-text"><b>Naleznete ho <a href="https://github.com/BrewsLee21/zlabCTF" id="github-link">tady</a></b></span>
+    </div>
+</div>

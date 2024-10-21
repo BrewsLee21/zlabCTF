@@ -1,23 +1,19 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 @font-face {
-    font-family: "ADLaM Display";
-    src: url("static/fonts/ADLaMDisplay-Regular.ttf") format("truetype");
-    font-display: swap;
+    font-family: "dancing-script-regualr";
+    src: url("static/fonts/dancing-script/static/DancingScript-Regular.ttf");
 }
-.adlam-display-regular {
-    font-family: "ADLaM Display";
+
+.dancing-script-regular {
+    font-family: "Dancing Script";
+}
+
+.sans-serif-regular {
+    font-family: sans-serif;
     font-weight: 400;
 }
-.adlam-display-bold {
-    font-family: "ADLaM Display";
-    font-weight: 700;
-}
-.roboto-regular {
-    font-family: "Roboto Light";
-    font-weight: 400;
-}
-.roboto-bold {
-    font-family: "Roboto Light";
+.sans-serif-bold {
+    font-family: sans-serif;
     font-weight: 700;
 }

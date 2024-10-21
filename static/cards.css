@@ -1,0 +1,53 @@
+.content-container {
+    justify-content: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+
+    margin: 4rem 15% 0 15%;
+}
+
+@media only screen and (max-width: 1270px) {
+    .cards-container {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+    }
+}
+
+.slogan {
+    margin: 2rem 20%;
+}
+.slogan-text {
+    text-align: center;
+
+    font-size: 4rem;
+}
+
+.card {
+    background-color: var(--gray-light);
+    margin: 1rem;
+    padding: 2rem;
+    height: auto;
+
+    border-radius: 8px;
+    box-shadow: 0.5rem 0.5rem 1rem lightgray;
+}
+
+.card-icon {
+    min-height: 8rem;
+    min-width: 8rem;
+    margin-right: 1rem; 
+}
+
+.card-text p {
+    font-size: 1.2rem;
+}
+
+.card-title {
+    color: var(--uzlabina_orange);
+    font-size: 3rem;
+}
