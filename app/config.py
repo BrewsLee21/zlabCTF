@@ -1,6 +1,5 @@
 import os
 
-
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
@@ -16,7 +15,7 @@ class Config:
     LEVELS = [
         { # Level 1
             "level_number": 1,
-            "level_title": "SQL injection Attack",
+            "level_title": "SQL injection",
             "level_description": "Přihlaš se do databáze pomocí svého přihlašovacího jména a hesla.<br>" \
                                 "Jeden z našich uživatelů má docela zváštní uživatelské jméno.<br>Dokážeš ho najít?",
             "level_url": "/level/1",
@@ -24,15 +23,16 @@ class Config:
         },
         { # Level 2
             "level_number": 2,
-            "level_title": "Command injection Attack",
-            "level_description": "Na serverovém úložišti <span class='path nosplit'>/share/files</span> jsou uloženy soubory uživatelů.<br>" \
-                                "Server provede příkazy zadané uživatelem, aby mu mohl zobrazit informace o těchto souborech.<br>",
+            "level_title": "Command injection",
+            "level_description": "Na serverovém úložišti <span class='code nosplit'>/share/files</span> jsou uloženy soubory uživatelů.<br>" \
+                                "Server provede příkazy zadané uživatelem, aby mu mohl zobrazit informace o těchto souborech.<br>" \
+                                "TODO! Napiš sem, že se může jít do /secret/...",
             "level_url": "/level/2",
             "level_flag": "zlabCTF{c0d3_1nj3ct10n_z829nzh6}"
         },
         { # Level 3
             "level_number": 3,
-            "level_title": "Stored XSS Attack",
+            "level_title": "Stored XSS",
             "level_description": "Vítej v naší komentářové sekci!<br>" \
                                 "Je to tady 100% anonymní!<br>" \
                                 "Hlavně sem nepiš žádný kraviny...",

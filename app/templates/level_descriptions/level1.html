@@ -1,0 +1,22 @@
+<div class="level-theory">
+	Podívejte se na následující SQL dotaz:<br>
+	<span class="code nosplit">SELECT * FROM `users` WHERE `username`='user19'</span><br>
+	V tomto případě se SQL podívá do tabulky <span class=code>users</span>
+	a vrátí nám všechna data z řádků, ve kterých se sloupec <span class=code>username</span> rovná 'user19'.<br>
+	<br>
+	Webové aplikace ale dotazy vytváří na základě údajů, které dostanou od uživatelů.<br>
+	Takto by mohl vypadat python skript, který by vyplnil SQL dotaz s daty získanými od uživatele:<br>
+	<span class="code multi-line-code nosplit">
+		entered_username = input()<br>
+		query = f"SELECT * FROM `users` WHERE `username`='{entered_username}'"
+	</span>
+	Tato implementace se dá jednoduše zneužít zadáním škodlivého vstupu, který by mohl vypadat například takto:<br>
+	<span class="code nosplit">' OR 1=1 --</span><br><br>
+	Výsledný dotaz, který by se provedl, by potom vypadal takto:<br>
+	<span class="code nosplit">SELECT * FROM `users` WHERE `username`='' OR 1=1 --'</span><br>
+	Tento dotaz nám vrátí všechny řádky v tabulce <span class="code nosplit">users</span>, pro kterou platí, že se v ní sloupec <span class="code nosplit">username</span> rovná '' NEBO se pro ni 1 rovná 1.<br>
+	<span class="red">1 se ale bude rovnat 1 vždy</span>, bez ohledu na jakékoli okolnosti.<br>
+	Tímto by se nám podařilo obejít přihlašování a dostali bychom data o každém uživateli v tabulce <span class="code nosplit">users</span><br>
+	<br><hr><br>
+	Pojďme si teď vyzkoušet SQL injection v následujícím scénáři!<br>
+</div>

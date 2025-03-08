@@ -1,3 +1,29 @@
+/* ====================== General ====================== */
+
+.code {
+	width: auto;
+	padding: 2px 4px;
+	border-radius: 4px;
+	font-family: "Lucida Console", Monaco, monospace !important;
+	font-weight: lighter;
+	background-color: var(--light-gray);
+
+	display: inline;
+}
+
+.multi-line-code {
+	display: inline-block;
+	padding: 2rem 1rem;
+}
+
+.nosplit {
+	white-space: nowrap;
+}
+
+.red {
+	color: red;
+}
+
 .content-container {
 	height: 100%;
 	overflow-y: auto;
@@ -5,6 +31,10 @@
 
 .content-container form {
 	width: 100%;
+}
+
+.flag-form {
+	margin-bottom: 2rem;
 }
 
 .level-number {
@@ -21,10 +51,26 @@
 
 .level-title {
 	font-size: 2rem;
+	margin-bottom: 0.5rem;
 }
 
 .level-description-container {
 	max-width: 75%;
+}
+
+.level-theory {	
+	border-radius: 12px;
+	padding: 0.5rem 2rem;
+	margin-bottom: 2rem;
+	
+	text-align: start;
+	line-height: 1.5;
+
+	background-color: var(--lighter-gray);
+}
+
+.level-scenario-container {
+	justify-content: center;
 }
 
 .vertical-line {
@@ -64,15 +110,7 @@
 	cursor: pointer;
 }
 
-.nosplit {
-	white-space: nowrap;
-}
-
 /* ====================== Level 2 ====================== */
-
-.path {
-	background-color: var(--light-gray);
-}
 
 /* ================================================================== */
 /* ====================== Level 3 ====================== */

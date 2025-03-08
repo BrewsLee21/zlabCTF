@@ -5,9 +5,12 @@
 	<div class="flex flex-col content-container">
 		<h1 class="level-number">Level {{ level_info.level_number }}</h1>
 		<p class="level-title">{{ level_info.level_title }}</p>
-		<div class="flex flex-row level-description-container">
-			<div class="vertical-line"></div>
-			<div class="level-description">{{ level_info.level_description | safe}}</div>
+		<div class="flex flex-col level-description-container">
+			{% include "level_descriptions/level" ~ level_info.level_number ~ ".html" %}
+			<div class="flex flex-row level-scenario-container">
+				<div class="vertical-line"></div>
+				<div class="level-description">{{ level_info.level_description | safe}}</div>
+			</div>
 		</div>
 
 		<form action="" method="post" novalidate>
@@ -31,8 +34,8 @@
 				{% endfor %}
 			{% endif %}
 		{% endwith %}
-		<form action="" method="post" novalidate>
-			{{ level_form.hidden_tag() }}
+		<form action="" method="post" novalidate class="flag-form">
+			{{ flag_form.hidden_tag() }}
 			<div>
 	 			{{ flag_form.flag.label }}<br>
 				{{ flag_form.flag }}

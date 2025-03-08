@@ -1,7 +1,3 @@
-.content-container  *:not(h1) {
-	font-family: Verdana, sans-serif;
-}
-
 #index-title {
 	font-size: 5rem;
 	font-family: Roboto , sans-serif;
@@ -13,7 +9,7 @@
 	margin-top: 0;
 	margin-bottom: 1rem;
 
-}
+}	
 
 #index-description {
 	margin-top: 2rem;

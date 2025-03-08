@@ -1,8 +1,11 @@
 :root {
+	--lighter-gray: #fafafa;
 	--light-gray: #dadada;
 	--darker-light-gray: #cbcbcb;
 	--gray-on-hover: #eaeaea;
+	--light-uzlabina-orange: #f28e41;
 	--uzlabina-orange: #f5832a;
+	
 	--footer-height: 4rem;
 }
 
@@ -40,6 +43,10 @@ html, body {
 	text-align: center;
 
 	align-items: center;
+}
+
+.content-container *:not(h1) {
+	font-family: "Tahoma", sans-serif;
 }
 
 nav {
