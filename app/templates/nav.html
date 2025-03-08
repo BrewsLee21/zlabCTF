@@ -1,0 +1,10 @@
+<nav class="flex flex-col">
+	<a href="/">
+		<div>Domů</div>
+	</a>
+	{% for level in levels %}
+	<a href={{ level.level_url }}{% if level_info and level.level_number == level_info.level_number %} style="background-color: var(--uzlabina-orange);"{% endif %}>
+		<div>Level {{ level.level_number }}</div>
+	</a>
+	{% endfor %}
+</nav>

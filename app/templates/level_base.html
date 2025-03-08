@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+	<div class="flex flex-col content-container">
+		<h1 class="level-number">Level {{ level_info.level_number }}</h1>
+		<p class="level-title">{{ level_info.level_title }}</p>
+		<div class="flex flex-row level-description-container">
+			<div class="vertical-line"></div>
+			<div class="level-description">{{ level_info.level_description | safe}}</div>
+		</div>
+
+		<form action="" method="post" novalidate>
+			{{ level_form.hidden_tag() }}
+			{% for field in level_form %}
+			  	{% if field.type != 'CSRFTokenField' %}
+				    <div>
+				    	{% if field.type != "SubmitField" %}
+					      	{{ field.label }}<br>
+			      		{% endif %}
+			      		{{ field }}
+				    </div>
+			  	{% endif %}
+			{% endfor %}
+			
+		</form>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<p class="error-msg">{{ message }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<form action="" method="post" novalidate>
+			{{ level_form.hidden_tag() }}
+			<div>
+	 			{{ flag_form.flag.label }}<br>
+				{{ flag_form.flag }}
+			</div>
+			<div class="flag-submit-btn">{{ flag_form.submit() }}</div>
+		</form>
+
+		{% if comments %}
+			<h3>Komentáře:</h3>
+			{% for comment in comments %}
+				<div class="comment">
+					{{ comment.comment_content | safe }}
+				</div>
+			{% endfor %}
+		{% endif %}
+	</div>
+{% endblock %}

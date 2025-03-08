@@ -1,0 +1,10 @@
+Hey friend,
+
+I hope you're doing well! I recently learned a cool trick on the Linux terminal that I wanted to share with you. You can actually run multiple commands in one line by separating them with a semicolon. For example:
+
+$ ls; pwd; echo "Hello, World!"
+
+It can be super useful for automating tasks or chaining commands together. Let me know if you try it out!
+
+Take care,
+Your Friend

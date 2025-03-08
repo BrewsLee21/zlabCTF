@@ -1,0 +1,29 @@
+.content-container  *:not(h1) {
+	font-family: Verdana, sans-serif;
+}
+
+#index-title {
+	font-size: 5rem;
+	font-family: Roboto , sans-serif;
+	font-weight: lighter;
+	color: var(--uzlabina-orange);
+
+	text-shadow: 0 0 2rem var(--uzlabina-orange);
+
+	margin-top: 0;
+	margin-bottom: 1rem;
+
+}
+
+#index-description {
+	margin-top: 2rem;
+	padding: 2rem 1rem;
+	border-radius: 6px;
+
+	max-width: 60%;
+	
+	background-color: var(--light-gray);
+
+	box-shadow: 0rem 0rem 5rem;
+}
+
