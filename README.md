@@ -40,7 +40,7 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 	```flask run --host=192.168.0.1 --port=8080```
 
 > [!NOTE]
-> ```flask run``` Je pouze vývojový server!
+> ```flask run``` Je pouze vývojový server! \
 > Na zkoušku je to v pohodě, ale v realitě je lepší použít jiný WSGI server. \
 > wnapř.: waitress, gunicorn
 	
