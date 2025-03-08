@@ -41,6 +41,6 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 
 > [!NOTE]
 > ```flask run``` Je pouze vývojový server!
-> Na zkoušku je to v pohodě, ale v realitě je lepší použít jiný WSGI server.
+> Na zkoušku je to v pohodě, ale v realitě je lepší použít jiný WSGI server. \
 > wnapř.: waitress, gunicorn
 	
