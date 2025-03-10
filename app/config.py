@@ -25,8 +25,8 @@ class Config:
             "level_number": 2,
             "level_title": "Command injection",
             "level_description": "Na serverovém úložišti <span class='code nosplit'>/share/files</span> jsou uloženy soubory uživatelů.<br>" \
-                                "Server provede příkazy zadané uživatelem, aby mu mohl zobrazit informace o těchto souborech.<br>" \
-                                "TODO! Napiš sem, že se může jít do /secret/...",
+                                "Stačí zadat název souboru a vypíše se jeho obsah!<br>" \
+                                "Na serveru je ale ještě adresář <span class='code nosplit'>/secret/level2</span>, který obsahuje zajímavá data.",
             "level_url": "/level/2",
             "level_flag": "zlabCTF{c0d3_1nj3ct10n_z829nzh6}"
         },

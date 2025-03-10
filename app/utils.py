@@ -60,10 +60,8 @@ def ls(*args) -> int | list:
     if len(args) > 2:
         return -1
     if len(args) == 0:
-        return -6
-    if args[0].startswith('-') and args[0] != "-l": # the argument is a prohibited flag
-        return -2
-    if args[1].startswith('-') and args[1] != "-l": # the argument is a prohibited flag
+        return ls(str(pwd()))
+    if args[0].startswith('-'):
         return -2
     path = os.path.expanduser(args[0])
 
@@ -125,7 +123,7 @@ def run_cmd(inp: str):
     }
     results = []
     
-    commands = re.split(";|&&", inp)
+    commands = re.split(";|&&|\|\|", inp)
     for command in commands:
         parts = shlex.split(command)
         cmd_name = parts[0] if parts else ""
@@ -135,6 +133,8 @@ def run_cmd(inp: str):
 
         if cmd_name in allowed_cmds:
             results.append((cmd_name, allowed_cmds[cmd_name](*args)))
+        elif not cmd_name:
+            continue
         else:
             results.append((cmd_name, -5))
     return results
@@ -147,7 +147,7 @@ def clear_comments():
     # delete all comments
     Level3Model.query.delete()
     # put back the first comment
-    db.session.add(Level3Model(comment_content=first_comment))
+    db.session.add(Level3Model(comment_content=c.FIRST_COMMENT))
     db.session.commit()
 
 # ===================================================

@@ -69,6 +69,9 @@ def copy_files_to_files_dir():
 def populate_level1_table():
     """Removes all data from the level2_model table and populates it again"""
     print(f"Plním tabulku level2_model ze souboru {c.USER_DATA}")
+
+    flag_row = randint(0, 199)
+
     with open(c.USER_DATA, 'r') as f:
         with app.app_context():
             Level1Model.query.delete()
@@ -82,6 +85,8 @@ def populate_level1_table():
                     stdout.write("\r...")
                 stdout.flush()
                 username, password = line.split()
+                if i == flag_row:
+                    username = c.LEVELS[0]["level_flag"]
                 new_user = Level1Model(username=username, hashed_password=argon2.hash(password))
                 db.session.add(new_user)
             db.session.commit()

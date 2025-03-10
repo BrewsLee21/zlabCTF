@@ -3,8 +3,7 @@
 
 {% block content %}
 	<div class="flex flex-col content-container">
-		<h1 class="level-number">Level {{ level_info.level_number }}</h1>
-		<p class="level-title">{{ level_info.level_title }}</p>
+		<h1 class="level-title">{{ level_info.level_title }}</h1>
 		<div class="flex flex-col level-description-container">
 			{% include "level_descriptions/level" ~ level_info.level_number ~ ".html" %}
 			<div class="flex flex-row level-scenario-container">

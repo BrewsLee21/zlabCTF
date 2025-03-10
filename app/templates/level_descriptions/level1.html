@@ -9,7 +9,7 @@
 	<span class="code multi-line-code nosplit">
 		entered_username = input()<br>
 		query = f"SELECT * FROM `users` WHERE `username`='{entered_username}'"
-	</span>
+	</span><br>
 	Tato implementace se dá jednoduše zneužít zadáním škodlivého vstupu, který by mohl vypadat například takto:<br>
 	<span class="code nosplit">' OR 1=1 --</span><br><br>
 	Výsledný dotaz, který by se provedl, by potom vypadal takto:<br>

@@ -1,0 +1,13 @@
+<div class="level-theory">
+	Cross-Site Scripting (XSS) útoky spočívají ve spouštění škodlivého JavaScript kódu na serveru.<br>
+	Stored XSS útoky využívají toho, že servery tento JavaScript kód ukládají v databázi.<br>
+	<br>
+	Představme si zranitelné dotazní fórum, kde útočník vytvoří takovýto příspěvěk:
+	<span class="code multi-line-code nosplit">
+		Mám otázku.
+		&lt;script&gt;alert("Hello, World!");&lt;/script&gt;
+	</span><br>
+	Tento příspěvěk zveřejní a po načtení stránky se jeho příspěvek na stránce objeví<br>
+	<br>
+	TODO!
+</div>

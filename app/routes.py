@@ -71,11 +71,8 @@ def level2():
     else:
         entered_flag = None
         
-    cmd = f"ls -l {c.FILES_DIR}/{user_input}"
+    cmd = f"cat {c.FILES_DIR}/{user_input}"
     if user_input:
-        if user_input.startswith(".."):
-            flash("Nelze přistupovat k souborům a adresářům mimo ~/files!")
-            return render_template(f"level2.html", level_info=c.LEVELS[1], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
         output = f"Command executed: {cmd}<br><br>"
         # each element in the result_list list is a result of an executed command
         result_list = run_cmd(cmd)
@@ -145,6 +142,7 @@ def level3():
 @app.route("/level/3/cookiejar", methods=["get"])
 def cookiejar():
     global cookie_received
+    print("Somebody was here!")
 
     if cookie_received:
         print("Setting to false ")
@@ -152,6 +150,7 @@ def cookiejar():
         return f"To si pochutnám!\nTady máš flag: {c.LEVELS[2]['level_flag']}"
 
     for cookies in request.args.values():
+        print(f"cookies: {cookies}")
         if type(cookies) != list:
             cookies = [cookies]
         for cookie in cookies:

@@ -1,0 +1,23 @@
+<div class="level-theory">
+	Útoky typu command injection umožňují útočníkovy provádět příkazy operačního systému na serveru.<br>
+	V následujícím příkladu uživatel zadá cestu k souboru, jehož obsah chce vypsat na výstup pomocí příkazu <span class="code nosplit">cat</span>:<br>
+	<span class="code multi-line-code nosplit">
+		import os<br>
+		<br>
+		path = input("soubor: ")<br>
+		os.system("cat " + path)<br>
+	</span><br>
+	Této implementace se dá zneužít.<br>
+	V Linuxovém terminálovém prostředí lze provést několik příkazů, pokud jsou správně odděleny.<br>
+	<span class="code nosplit">;</span> - Provede příkazy po sobě bez ohledu na to, jestli byli úspěšné<br>
+	<span class="code nosplit">&&</span> - Provede příkaz pouze pokud byl ten předešlý úspěšný<br>
+	Dále například ještě <span class="code nosplit">||</span>, <span class="code nosplit">|</span>, <span class="code nosplit">&</span>, <span class="code nosplit">()</span>, <span class="code nosplit">{}</span><br>
+	<br>
+	Do python kódu popsaného výše by uživatel mohl vložit například:<br>
+	<span class="code nosplit">aaa; whoami</span><br>
+	Příkaz, který by server provedl, by potom vypadal takto:<br>
+	<span class="code nosplit">cat aaa; whoami</span><br>
+	Tento příkaz by vypsal obash souboru <span class="code nosplit">aaa</span>, a poté by vypsal uživatelské jméno uživatele aktuálně přihlášeného na serveru.<br>
+	<br><hr><br>
+	Pojďme se teď command injection útok vyzkoušet v následujícím scénaři!<br> 
+</div>
