@@ -26,6 +26,10 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 3. Nainstalovat potřebné python moduly\
 	```pip install -r requirements.txt```
 
+> [!NOTE]
+> Pokud používáš venv, tak bude potřeba všechno spouštěn v něm, \
+> protože obsahuje potřebné python moduly!
+
 4. Inicializovat potřebnou konfiguraci (Bude potřeba to spustit se sudo)\
 	Pokud si vytvořil venv, tak bude potřeba spusit init.py skript takhle\
 	```sudo <tvuj_venv>/bin/python init.py```
