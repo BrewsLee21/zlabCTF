@@ -45,7 +45,7 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 	Aplikaci můžeš spustit na konkrétní adrese nebo an konkrétním portu\
 	```flask run --host=192.168.0.1 --port=8080```
 
-> [!NOTE]
+> [!WARNING]
 > ```flask run``` Je pouze vývojový server! \
 > Na zkoušku je to v pohodě, ale v realitě je lepší použít jiný WSGI server. \
 > např.: waitress, gunicorn
