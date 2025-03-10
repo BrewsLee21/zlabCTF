@@ -26,9 +26,11 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 3. Nainstalovat potřebné python moduly\
 	```pip install -r requirements.txt```
 
-4. Inicializovat potřebnou konfiguraci (Bude potřeba to spustit se sudo)
+4. Inicializovat potřebnou konfiguraci (Bude potřeba to spustit se sudo)\
 	Pokud si vytvořil venv, tak bude potřeba spusit init.py skript takhle\
 	```sudo <tvuj_venv>/bin/python init.py```
+
+	Ten vytvoří složky ```/secret``` a ```/share```, proto je potřeba použít sudo\
 	
 	Inicializovat databázy\
 	```flask db init```
