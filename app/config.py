@@ -10,14 +10,14 @@ class Config:
     SECRET_DIR ="/secret" # directory to store level flags for users to find
     USER_DATA = os.path.join(BASE_DIR, "res/level1/user_data.txt") # Used in Level 1 (SQL Injection)
     FILES_DIR = "/share/files" # Used in Level 2 (Command Injection)
-    FIRST_COMMENT = "<span style='color: red;'>Do cookies se prý ukládají citlivá data.</span><br>Dám flag komukoliv, kdo mi pošle všechny cookies na url <span class='nosplit'>'/level/3/cookiejar'</span><br>&bull; Zloděj sušenek" # Used in Level 3 (Stored XSS)
+    FIRST_COMMENT = "<span style='color: red;'>Do cookies se prý ukládají citlivá data.</span><br>Dám flag <strong>komukoliv</strong>, kdo pošle GET request se všemi cookies na url <span class='nosplit'>'/level/3/cookiejar'</span><br>&bull; Zloděj sušenek" # Used in Level 3 (Stored XSS)
 
     LEVELS = [
         { # Level 1
             "level_number": 1,
             "level_title": "SQL injection",
-            "level_description": "Přihlaš se do databáze pomocí svého přihlašovacího jména a hesla.<br>" \
-                                "Jeden z našich uživatelů má docela zváštní uživatelské jméno.<br>Dokážeš ho najít?",
+            "level_description": "Tohle je zranitelný přihlašovací formulář.<br>" \
+                                "Jeden z uživatelův databázi má zváštní uživatelské jméno.<br>Dokážeš ho najít?",
             "level_url": "/level/1",
             "level_flag": "zlabCTF{sql_1nj3ct10n_bllp9khr}"
         },
@@ -34,8 +34,7 @@ class Config:
             "level_number": 3,
             "level_title": "Stored XSS",
             "level_description": "Vítej v naší komentářové sekci!<br>" \
-                                "Je to tady 100% anonymní!<br>" \
-                                "Hlavně sem nepiš žádný kraviny...",
+                                "Napiš sem něco hezkého.<br>",
             "level_url": "/level/3",
             "level_flag": "zlabCTF{xss_4tt4ck_kjh4sn0p}"
         },

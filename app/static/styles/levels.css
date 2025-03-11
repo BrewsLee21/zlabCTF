@@ -25,6 +25,14 @@
 	color: red;
 }
 
+.bold {
+	font-weight: bold;
+}
+
+.font-size-bigger {
+	font-size: 1.5rem;
+}
+
 .content-container {
 	height: 100%;
 	overflow-y: auto;

