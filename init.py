@@ -1,6 +1,7 @@
 from app.config import Config as c
 from app import app, db
-from app.models import Level1Model, Level3Model, Level4Model, Level5Model
+from app.models import Level1Model, Level3Model, CookieModel, Level4Model, Level5Model
+from app.utils import get_new_cookie
 
 import os
 from shutil import copy
@@ -108,11 +109,27 @@ def generate_pins():
     with app.app_context():
         Level4Model.query.delete()
         Level5Model.query.delete()
-        get_pin = lambda: ''.join([str(randint(0, 9)) for _ in range(5)]) 
+        get_pin = lambda: ''.join([str(randint(0, 9)) for _ in range(5)])
+        
+        new_pin4, new_pin5 = get_pin(), get_pin()
+        
+        print(f"\tNový pin Levelu 4: {new_pin4}")
+        print(f"\tNový pin Levelu 5: {new_pin5}")
         db.session.add(Level4Model(pin=get_pin()))
         db.session.add(Level5Model(pin=get_pin()))
         db.session.commit()
     print("Nové piny byly vloženy do tabulek")
+
+def generate_secret_cookie():
+    print("Generuji novou secret_cookie...")
+    print(f"\tSECRET_COOKIE_LEN: {c.SECRET_COOKIE_LEN}")
+    with app.app_context():
+        CookieModel.query.delete()
+        new_cookie = get_new_cookie() # Function imported from app/utils.py
+        print(f"\tNová secret_cookie: {new_cookie}")
+        db.session.add(CookieModel(cookie_value=get_new_cookie()))
+        db.session.commit()
+    print("Nová secret_cookie vložen do tabulky.")
     
 def init(arg):
     """Initializes the application and gets everything ready"""
@@ -125,10 +142,13 @@ def init(arg):
         populate_level1_table() # Fill the level1 table with user data from USER_DATA
         add_first_comment() # Adds FIRST_COMMENT into the level3 table
         generate_pins() # Generates random pins and adds them into the level4 and level5 tables
+        generate_secret_cookie()
     elif arg == "com":
         add_first_comment()
     elif arg == "pin":
         generate_pins()
+    elif arg == "cookie":
+        generate_secret_cookie()
     else:
         print(f"{arg}: neznámý argument")
 

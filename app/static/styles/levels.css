@@ -18,7 +18,8 @@
 }
 
 .nosplit {
-	white-space: nowrap;
+	max-width: 95%;
+	overflow-x: scroll; 
 }
 
 .red {

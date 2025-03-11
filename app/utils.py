@@ -1,8 +1,9 @@
 import re
 import shlex
 import os
-import random
+from random import randrange, choice
 from time import sleep
+from string import ascii_letters
 
 from app import app, db
 from app.models import *
@@ -150,6 +151,10 @@ def clear_comments():
     db.session.add(Level3Model(comment_content=c.FIRST_COMMENT))
     db.session.commit()
 
+
+chars = ascii_letters + "0123456789"
+get_new_cookie = lambda: ''.join([choice(chars) for _ in range(c.SECRET_COOKIE_LEN)])
+
 # ===================================================
 # ================= Level 4 =================
 
@@ -161,7 +166,7 @@ def generate_new_pin() -> str:
     pin_length = 5
     new_pin = ""
     for _ in range(pin_length):
-        new_pin += str(random.randrange(0, 9))
+        new_pin += str(randrange(0, 9))
     return str(new_pin.zfill(pin_length))
 
 def change_pin(level: int):

@@ -12,6 +12,10 @@ class Config:
     FILES_DIR = "/share/files" # Used in Level 2 (Command Injection)
     FIRST_COMMENT = "<span style='color: red;'>Do cookies se prý ukládají citlivá data.</span><br>Dám flag <strong>komukoliv</strong>, kdo pošle GET request se všemi cookies na url <span class='nosplit'>'/level/3/cookiejar'</span><br>&bull; Zloděj sušenek" # Used in Level 3 (Stored XSS)
 
+    # Used in Level 3
+    SECRET_COOKIE_KEY = "secret_cookie"
+    SECRET_COOKIE_LEN = 32
+
     LEVELS = [
         { # Level 1
             "level_number": 1,

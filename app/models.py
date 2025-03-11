@@ -1,4 +1,5 @@
 from app import db
+from app.config import Config as c
 
 class FlagsModel(db.Model):
     flag_id = db.Column("flag_id", db.Integer, primary_key=True, autoincrement=True)
@@ -20,6 +21,10 @@ class Level3Model(db.Model):
 
     def __init__(self, comment_content):
         self.comment_content = comment_content
+
+class CookieModel(db.Model):
+    cookie_id = db.Column("pin_id", db.Integer, primary_key=True, autoincrement=True)
+    cookie_value = db.Column("cookie_value", db.String(c.SECRET_COOKIE_LEN))
 
 class Level4Model(db.Model):
     pin_id = db.Column("pin_id", db.Integer, primary_key=True, autoincrement=True)

