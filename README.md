@@ -10,7 +10,11 @@
 
 Aby to všechno fungovalo, je potřeba udělat následující:
 
-1. Naklonovat tenhle repozitář
+1. Naklonovat tenhle repozitář\
+	```git clone https://github.com/BrewsLee21/zlabCTF.git```
+
+	Nebo přes SSH\
+	```git clone git@github.com:BrewsLee21/zlabCTF.git```
 
 2. (Volitelné) Vytvořit nový .venv\
 	```python -m venv <tvuj_venv>```\
