@@ -119,10 +119,13 @@ def level3():
         resp.set_cookie(cookie, "", expires=0)
     print("Setting secret cookie!")
     try:
-        db_cookie_value = CookieModel.query.with_entities(CookieModel.cookie_value).first()[0]
+        db_cookie_key, db_cookie_value = CookieModel.query.with_entities(CookieModel.cookie_key, CookieModel.cookie_value).first()
     except Exception as e:
         return str(e)
-    resp.set_cookie("secret_cookie", str(db_cookie_value))
+    resp.set_cookie(db_cookie_key, db_cookie_value)
+    for i in range(c.EXTRA_COOKIES):
+        extra_cookie_key, extra_cookie_value = get_new_cookie()
+        resp.set_cookie(extra_cookie_key, extra_cookie_value)
     
     if level_form.validate_on_submit():
         comment_content = Level3Model(level_form.data["comment_section"])
@@ -146,7 +149,7 @@ def level3():
 @app.route("/level/3/cookiejar", methods=["get"])
 def cookiejar():
     global cookie_received
-    correct_secret_cookie_value = CookieModel.query.with_entities(CookieModel.cookie_value).first()[0]
+    correct_cookie_key, correct_cookie_value = CookieModel.query.with_entities(CookieModel.cookie_key, CookieModel.cookie_value).first()
     
 
     if cookie_received:
@@ -155,11 +158,10 @@ def cookiejar():
         return f"To si pochutnám!\nTady máš flag: {c.LEVELS[2]['level_flag']}"
 
     for cookies in request.args.items():
-        
         if type(cookies) != list:
             cookies = [cookies]
         for cookie_key, cookie_value in cookies:
-            if cookie_key == c.SECRET_COOKIE_KEY and cookie_value == correct_secret_cookie_value:
+            if cookie_key == correct_cookie_key and cookie_value == correct_secret_cookie_value:
                 print("Setting to True")
                 cookie_received = True
                 return "OK"
@@ -171,14 +173,14 @@ def cookiejar():
                     dict_values = list(map(lambda x: x.strip(), cookie_value.split(';')))
                     for key_val in dict_values:
                         key, val = key_val.split('=')
-                        if key == c.SECRET_COOKIE_KEY and val == correct_secret_cookie_value:
+                        if key == correct_cookie_key and val == correct_cookie_value:
                             print("Setting to True")
                             cookie_received = True
                             return "OK"
                 # else if there is just one key/value pair in the dict
                 else:
                     key, val = cookie_value.split('=')
-                    if key == c.SECRET_COOKIE_KEY and val == correct_secret_cookie_value:
+                    if key == correct_cookie_key and val == correct_cookie_value:
                         print("Setting to True")
                         cookie_received = True
                         return "OK"

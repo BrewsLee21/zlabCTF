@@ -24,7 +24,8 @@ class Level3Model(db.Model):
 
 class CookieModel(db.Model):
     cookie_id = db.Column("pin_id", db.Integer, primary_key=True, autoincrement=True)
-    cookie_value = db.Column("cookie_value", db.String(c.SECRET_COOKIE_LEN))
+    cookie_key = db.Column("cookie_key", db.String(c.SECRET_COOKIE_KEY_LEN))
+    cookie_value = db.Column("cookie_value", db.String(c.SECRET_COOKIE_VALUE_LEN))
 
 class Level4Model(db.Model):
     pin_id = db.Column("pin_id", db.Integer, primary_key=True, autoincrement=True)

@@ -151,10 +151,13 @@ def clear_comments():
     db.session.add(Level3Model(comment_content=c.FIRST_COMMENT))
     db.session.commit()
 
+def get_new_cookie() -> str:
+    chars = ascii_letters + "0123456789"
+    new_key = ''.join([choice(chars) for _ in range(c.SECRET_COOKIE_KEY_LEN)])
+    new_value = ''.join([choice(chars) for _ in range(c.SECRET_COOKIE_VALUE_LEN)])
 
-chars = ascii_letters + "0123456789"
-get_new_cookie = lambda: ''.join([choice(chars) for _ in range(c.SECRET_COOKIE_LEN)])
-
+    return (new_key, new_value)
+    
 # ===================================================
 # ================= Level 4 =================
 

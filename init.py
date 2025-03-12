@@ -122,12 +122,13 @@ def generate_pins():
 
 def generate_secret_cookie():
     print("Generuji novou secret_cookie...")
-    print(f"\tSECRET_COOKIE_LEN: {c.SECRET_COOKIE_LEN}")
+    print(f"\tDélka klíče: {c.SECRET_COOKIE_KEY_LEN}")
+    print(f"\tDélka hodnoty: {c.SECRET_COOKIE_VALUE_LEN}")
     with app.app_context():
         CookieModel.query.delete()
-        new_cookie = get_new_cookie() # Function imported from app/utils.py
-        print(f"\tNová secret_cookie: {new_cookie}")
-        db.session.add(CookieModel(cookie_value=get_new_cookie()))
+        new_cookie_key, new_cookie_value = get_new_cookie() # Function imported from app/utils.py
+        print(f"\tNová secret_cookie: {new_cookie_key}:{new_cookie_value}")
+        db.session.add(CookieModel(cookie_key=new_cookie_key, cookie_value=new_cookie_value))
         db.session.commit()
     print("Nová secret_cookie vložen do tabulky.")
     
