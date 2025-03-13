@@ -42,7 +42,8 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 	Pokud si vytvořil venv, tak bude potřeba spusit init.py skript takhle\
 	```sudo <tvuj_venv>/bin/python init.py```
 
-	Ten vytvoří složky ```/secret``` a ```/share```, proto je potřeba použít sudo\
+	Ten vytvoří složky ```~/secret``` a ```~/share/files```, které aplikace bude používat. \
+	Tyto složky se dají změnit v ```app/config.py```, kde se jmenují SECRET_DIR a FILES_DIR. \ 
 	
 	Inicializovat databázy\
 	```flask db init```
