@@ -7,7 +7,8 @@
 ---
 
 > [!WARNING]
-> # POZOR
+> ## POZOR
+> Tohle je **zranitelná** webová aplikace, je určená pouze k výukovým účelům!
 
 ## Instrukce k použití
 
