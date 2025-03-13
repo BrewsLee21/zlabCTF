@@ -7,16 +7,18 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or f"sqlite:///{os.path.join(BASE_DIR, 'app.db')}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    SECRET_DIR ="/secret" # directory to store level flags for users to find
-    USER_DATA = os.path.join(BASE_DIR, "res/level1/user_data.txt") # Used in Level 1 (SQL Injection)
-    FILES_DIR = "/share/files" # Used in Level 2 (Command Injection)
+    USER_DATA = os.path.join(BASE_DIR, "static/res/level1/user_data.txt") # Used in Level 1 (SQL Injection)
+    SECRET_DIR = os.path.expanduser("~/secret") # directory to store level flags for users to find
+    LEVEL2_FILES_BACKUP_DIR = os.path.join(BASE_DIR, "static/res/level2") # files for level2 that need to be copied to ~/share/files
+    FILES_DIR = os.path.expanduser("~/share/files") # Used in Level 2 (Command Injection)
     FIRST_COMMENT = "<span style='color: red;'>Do cookies se prý ukládají citlivá data.</span><br>Dám flag <strong>komukoliv</strong>, kdo pošle GET request se všemi cookies na url <span class='nosplit'>'/level/3/cookiejar'</span><br>&bull; Zloděj sušenek" # Used in Level 3 (Stored XSS)
 
     # Used in Level 3
     SECRET_COOKIE_KEY_LEN = 8
     SECRET_COOKIE_VALUE_LEN = 32 # the length of the value of the secret cookies
     EXTRA_COOKIES = 64 # amount of extra cookies generated on Level3
-    
+
+    # displayed levels
     LEVELS = [
         { # Level 1
             "level_number": 1,
@@ -45,6 +47,7 @@ class Config:
         }
     ]
 
+    # all of the levels
     ALL_LEVELS = [
         { # Level 1
             "level_number": 1,

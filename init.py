@@ -15,6 +15,7 @@ YELLOW = "\033[33m"
 RESET = "\033[0m"
 
 def create_db():
+    """Creates the database"""
     with app.app_context():
         db.create_all()
     print("Databáze vytvořena")
@@ -43,7 +44,7 @@ def create_secret_flag_file():
 
     print(f"Vytvářím soubor {file_path} ...")
     with open(file_path, 'w') as f:
-        f.write(c.LEVELS[1]["level_flag"])
+        f.write(c.LEVELS[1]["level_flag"] + '\n')
     print(f"\tSoubor {file_path} vytvořen")
 
 def create_files_dir():
@@ -57,10 +58,10 @@ def create_files_dir():
         print(f"\tSložka {c.FILES_DIR} vytvořena")
 
 def copy_files_to_files_dir():
-    """Copies the files from app/res/level2 into FILES_DIR"""
-    for file in os.listdir("app/res/level2"):
+    """Copies the files from LEVEL2_FILES_DIR into FILES_DIR"""
+    for file in os.listdir(c.LEVEL2_FILES_BACKUP_DIR):
         try:
-            copy(f"app/res/level2/{file}", c.FILES_DIR)
+            copy(os.path.join(c.LEVEL2_FILES_BACKUP_DIR, file), c.FILES_DIR)
         except Exception as e:
             print(f"\t{RED}{e}{RESET}")
         else:
@@ -71,9 +72,12 @@ def populate_level1_table():
     """Removes all data from the level2_model table and populates it again"""
     print(f"Plním tabulku level2_model ze souboru {c.USER_DATA}")
 
-    flag_row = randint(0, 199)
-
     with open(c.USER_DATA, 'r') as f:
+        file_lines = sum(1 for _ in f)
+        flag_row = randint(0, file_lines - 1)
+    with open(c.USER_DATA, 'r') as f:
+        print(f"Number of lines in file: {file_lines}")
+        print(f"Row containing the flag: {flag_row}")
         with app.app_context():
             Level1Model.query.delete()
             for i, line in enumerate(f):
@@ -150,6 +154,13 @@ def init(arg):
         generate_pins()
     elif arg == "cookie":
         generate_secret_cookie()
+    elif arg == "dir":
+        create_secret_dir()
+        create_secret_flag_file()
+        create_files_dir()
+        copy_files_to_files_dir()
+    elif arg == "pop":
+        populate_level1_table()
     else:
         print(f"{arg}: neznámý argument")
 

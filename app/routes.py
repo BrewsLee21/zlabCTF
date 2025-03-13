@@ -2,6 +2,7 @@ from flask import render_template, request, flash, make_response
 from app import app
 import os
 from passlib.hash import argon2
+from random import randint
 
 from app.forms import *
 from app.models import *
@@ -23,19 +24,21 @@ def index():
 @app.route("/level/1", methods=["get", "post"])
 def level1():
     # ' OR 1=1 AND username LIKE "zlabCTF%" --
+
+    #TODO: Napad, nehashovat hesla, uživatel musí získat heslo konkrétního uživatele a pod ním se přihlásit, aby našel flagu?
     level_form = Level1Form()
     flag_form = FlagCheckForm()
 
     if level_form.validate_on_submit():
         username = level_form.data["username"]
         password = level_form.data["password"]
-            
+        
         output = "id username password<br>"
-
+        
         conn = db.engine.raw_connection()
         cursor = conn.cursor()
         try:
-            cursor.execute(f"SELECT * FROM level1_model WHERE username='{username}' AND hashed_password='{argon2.hash(password)}'")
+            cursor.execute(f"SELECT * FROM level1_model WHERE username='{username}'")
         except Exception as e:
             print(e)
             return "Byla nalezena syntaktická chyba v SQL dotazu!"
@@ -44,7 +47,15 @@ def level1():
         conn.commit()
         cursor.close()
         conn.close()
-
+        if len(result) == 1:
+            if argon2.verify(password, result[0][2]):
+                return render_template("profile.html", levels=c.LEVELS, username=result[0][1], messages=randint(0, 200))
+            else:
+                flash("Špatné uživatelské jméno nebo heslo.")
+                return render_template("level_base.html", level_info=c.LEVELS[0], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
+        elif not result:
+            flash("Špatné uživatelské jméno nebo heslo.")
+            return render_template("level_base.html", level_info=c.LEVELS[0], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
         for row in result:
             output += "{0} {1} {2}<br>".format(*row)
         return output

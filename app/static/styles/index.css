@@ -16,10 +16,12 @@
 	padding: 2rem 1rem;
 	border-radius: 6px;
 
+	width: 60%;
 	max-width: 60%;
+
+	text-align: start;
 	
 	background-color: var(--light-gray);
-
-	box-shadow: 0rem 0rem 5rem;
+	box-shadow: 0rem 0rem 1.5rem;
 }
 
