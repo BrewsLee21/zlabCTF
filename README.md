@@ -9,6 +9,7 @@
 > [!WARNING]
 > ## POZOR
 > Tohle je **zranitelná** webová aplikace, je určená pouze k výukovým účelům!
+
 > [!NOTE]
 > Spousta nastavení se dá změnit v app/config.py
  
