@@ -38,7 +38,7 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 	```pip install -r requirements.txt```
 
 > [!NOTE]
-> Pokud používáš venv, tak bude potřeba všechno spouštěn v něm, \
+> Pokud používáš venv, tak bude potřeba všechno spouštět v něm, \
 > protože obsahuje potřebné python moduly!
 
 4. Inicializovat potřebnou konfiguraci (možná bude potřeba to spustit se sudo)\
@@ -46,7 +46,7 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 	```sudo <tvuj_venv>/bin/python init.py```
 
 	Ten vytvoří složky ```~/secret``` a ```~/share/files```, které aplikace bude používat. \
-	Tyto složky se dají změnit v ```app/config.py```, kde se jmenují SECRET_DIR a FILES_DIR. \ 
+	Tyto složky se dají změnit v ```app/config.py```, kde se jmenují SECRET_DIR a FILES_DIR.
 	
 	Inicializovat databázy\
 	```flask db init```
@@ -54,7 +54,7 @@ Aby to všechno fungovalo, je potřeba udělat následující:
 5. V hlavním adresáři aplikace (zlabctf) spustit aplikaci\
 	```flask run```
 
-	Aplikaci můžeš spustit na konkrétní adrese nebo an konkrétním portu\
+	Aplikaci můžeš spustit na konkrétní adrese nebo na konkrétním portu\
 	```flask run --host=192.168.0.1 --port=8080```
 
 > [!WARNING]
