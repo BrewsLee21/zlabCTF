@@ -6,6 +6,9 @@
 
 ---
 
+> [!WARNING]
+> # POZOR
+
 ## Instrukce k použití
 
 Aby to všechno fungovalo, je potřeba udělat následující:
