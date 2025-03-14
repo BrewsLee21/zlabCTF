@@ -2,7 +2,9 @@
 
 {% block content %}
 	<div class="flex flex-col profile-container">
-		<p>Vítej, {{ username }}!</p>
-		<p>Máš {{ messages }} nepřečtených zpráv.</p>
+		<div class="flex flex-col profile-info">
+			<p>Vítej, <span class="bold">{{ username }}</span>!</p>
+			<p>Máš <span class="bold red">{{ messages }}</span> nepřečtených zpráv.</p>
+		</div>
 	</div>
 {% endblock %}

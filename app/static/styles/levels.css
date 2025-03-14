@@ -116,6 +116,31 @@
 	cursor: pointer;
 }
 
+/* ====================== Level 1 ====================== */
+
+.profile-container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	align-items: center;
+	top: 10%;
+}
+
+.profile-info {
+	width: 50%;
+	text-align: center;
+	background-color: var(--light-gray);
+	padding: 2rem 1rem;
+
+	border-radius: 6px;
+}
+
+.profile-info p {
+	font-family: Verdana, sans-serif;
+}
+
+/* ================================================================== */
+
 /* ====================== Level 2 ====================== */
 
 /* ================================================================== */
