@@ -85,20 +85,6 @@ def level2():
 
         output += run_cmd_unsafe(cmd)
         return output
-        # each element in the result_list list is a result of an executed command
-        result_list = run_cmd(cmd)
-        for cmd_name, cmd_result in result_list:
-            cmd_result_type = type(cmd_result)
-            
-            if cmd_result_type == int: # if the result was an error (only errors are represented by integers)
-                output += f"{cmd_name}: {error_codes[cmd_result]}<br>"
-            elif cmd_result_type == list:
-                for item in cmd_result:
-                    output += item + " "
-                output += "<br>"
-            elif cmd_result_type == str:
-                output += cmd_result + "<br>"
-        return output
 
     if entered_flag:
         if entered_flag == c.LEVELS[1]["level_flag"]:
