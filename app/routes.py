@@ -23,9 +23,6 @@ def index():
 
 @app.route("/level/1", methods=["get", "post"])
 def level1():
-    # ' OR 1=1 AND username LIKE "zlabCTF%" --
-
-    #TODO: Napad, nehashovat hesla, uživatel musí získat heslo konkrétního uživatele a pod ním se přihlásit, aby našel flagu?
     level_form = Level1Form()
     flag_form = FlagCheckForm()
 
@@ -113,10 +110,6 @@ def level2():
 
 @app.route("/level/3", methods=["get", "post"])
 def level3():
-    # <script>fetch("/level/3/cookiejar?susenka=" + document.cookie)</script>
-    # https://stackoverflow.com/questions/252665/i-need-to-get-all-the-cookies-from-the-browser
-    # https://www.geeksforgeeks.org/javascript-fetch-method/
-    
     level_form = Level3Form()
     flag_form = FlagCheckForm()
     
@@ -164,7 +157,6 @@ def level3():
 def cookiejar():
     global cookie_received
     correct_cookie_key, correct_cookie_value = CookieModel.query.with_entities(CookieModel.cookie_key, CookieModel.cookie_value).first()
-    
 
     if cookie_received:
         print("Setting to False ")
@@ -200,44 +192,6 @@ def cookiejar():
                         return "OK"
                         
     return "Co tu chceš? Tady není nic k vidění!"
-
-@app.route("/level/4", methods=["get", "post"])
-def level4():
-    level_form = Level4Form()
-    flag_form = FlagCheckForm()
-
-    if level_form.validate_on_submit():
-        correct_pin = Level4Model.query.with_entities(Level4Model.pin).first()[0]
-        print(f"Level 4 correct pin: {correct_pin}")
-        entered_pin = level_form.data["pin"]
-        if entered_pin == correct_pin:
-            return f"Vítej, uživateli Admin!\nTady je Váš flag: {c.LEVELS[3]['level_flag']}", 200
-        else:
-            return "Špatný pin!", 403
-    return render_template("level_base.html", level_info=c.LEVELS[3], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
-    
-@app.route("/level/5", methods=["get", "post"])
-def level5():
-    level_form = Level5Form()
-    flag_form = FlagCheckForm()
-
-    current_attempts = int(request.cookies.get("login_attempts", 0))
-    resp = make_response(render_template("level_base.html", level_info=c.LEVELS[4], flag_form=flag_form, level_form=level_form, levels=c.LEVELS))
-
-    if "login_attempts" not in request.cookies:
-        resp.set_cookie("login_attempts", str(current_attempts), max_age=300)
-
-    if level_form.validate_on_submit():
-        correct_pin = Level5Model.query.with_entities(Level5Model.pin).first()[0]
-        entered_pin = level_form.data["pin"]
-        if entered_pin == correct_pin:
-            resp.set_cookie("login_attempts", 0, expires=0)
-            return f"Vítej, uživateli Admin!\nTady je Váš flag: {c.LEVLES[4]['level_flag']}", 200
-        else:
-            resp.set_cookie("login_attempts", str(current_attempts + 1), max_age=300)
-            return "Špatný pin!", 403
-            
-    return resp
 
 @app.route("/level/<num>")
 def level_not_found(num):
