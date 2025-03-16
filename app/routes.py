@@ -79,8 +79,8 @@ def level2():
     else:
         entered_flag = None
         
-    cmd = f"cat {c.FILES_DIR}/{user_input}"
     if user_input:
+        cmd = f"cat {c.FILES_DIR}/{user_input}"
         output = f"Command executed: {cmd}<br><br>"
 
         output += run_cmd_unsafe(cmd)
