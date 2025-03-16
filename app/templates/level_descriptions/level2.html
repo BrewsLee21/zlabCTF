@@ -9,9 +9,12 @@
 	</span><br>
 	Této implementace se dá zneužít.<br>
 	V Linuxovém terminálovém prostředí lze provést několik příkazů, pokud jsou správně odděleny.<br>
-	<span class="code nosplit">;</span> - Provede příkazy po sobě bez ohledu na to, jestli byli úspěšné<br>
 	<span class="code nosplit">&&</span> - Provede příkaz pouze pokud byl ten předešlý úspěšný<br>
-	Dále například ještě <span class="code nosplit">||</span>, <span class="code nosplit">|</span>, <span class="code nosplit">&</span>, <span class="code nosplit">()</span>, <span class="code nosplit">{}</span><br>
+	<span class="code nosplit">||</span> - Provede příkaz pouze pokud byl ten předšlý neúspěšný<br>
+	Dále například ještě <span class="code nosplit">|</span>, <span class="code nosplit">&</span>, <span class="code nosplit">()</span>, <span class="code nosplit">{}</span><br>
+	<br>
+	Na Unix-based systémech lze ještě oddělovat příkazy takto:<br>
+	<span class="code nosplit">;</span> - středník<br>
 	<br>
 	Do python kódu popsaného výše by uživatel mohl vložit například:<br>
 	<span class="code nosplit">aaa; whoami</span><br>

@@ -5,6 +5,8 @@ from random import randrange, choice
 from time import sleep
 from string import ascii_letters
 
+import subprocess # CAUTION!!!
+
 from app import app, db
 from app.models import *
 from app.config import Config as c
@@ -124,13 +126,12 @@ def run_cmd(inp: str):
     }
     results = []
     
-    commands = re.split(";|&&|\|\|", inp)
+    commands = re.split(";|&&", inp)
     for command in commands:
         parts = shlex.split(command)
         cmd_name = parts[0] if parts else ""
         args = parts[1:] if len(parts) > 1 else ""
         
-        print(f"cmd: '{cmd_name}' - args: '{str(args)}'")
 
         if cmd_name in allowed_cmds:
             results.append((cmd_name, allowed_cmds[cmd_name](*args)))
@@ -140,6 +141,17 @@ def run_cmd(inp: str):
             results.append((cmd_name, -5))
     return results
 
+def run_cmd_unsafe(inp: str):
+    """Runs a string using subprocess and returns the output"""
+    cmd_blacklist = ["rm"]
+
+    for bad_cmd in c.CMD_BLACKLIST:
+        if bad_cmd in inp:
+            return "Illegal command detected!"
+    
+    result = subprocess.run(inp, shell=True, capture_output=True, text=True)
+
+    return str(result.stdout).replace('\n', "<br>")
 # ===================================================
 # ================= Level 3 =================
 

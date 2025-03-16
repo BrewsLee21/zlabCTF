@@ -13,7 +13,7 @@ cookie_received = False # used in level 3
 
 @app.route("/test")
 def test():
-    return "Tohle je stránka pro testování.<br>Nic tady teď není"
+    return "<p>Toto je testovací stránka</p>"
 
 @app.route("/")
 @app.route("/index")
@@ -85,6 +85,9 @@ def level2():
     cmd = f"cat {c.FILES_DIR}/{user_input}"
     if user_input:
         output = f"Command executed: {cmd}<br><br>"
+
+        output += run_cmd_unsafe(cmd)
+        return output
         # each element in the result_list list is a result of an executed command
         result_list = run_cmd(cmd)
         for cmd_name, cmd_result in result_list:
