@@ -115,9 +115,7 @@ def pwd(*args) -> str:
     return os.getcwd()
 
 def run_cmd(inp: str):
-    """Used in Level 2.
-        Runs the user's input, tries to act like a shell.
-        Returns a list of tuples where each tuple is (command_name, command_result)"""
+    """Used in Level 2. Not used anymore. Implements it's own ls, pwd and cat functions to make the comamnd injection scenario less dangerous"""
         
     allowed_cmds = {
         "ls": ls,
@@ -143,7 +141,6 @@ def run_cmd(inp: str):
 
 def run_cmd_unsafe(inp: str):
     """Runs a string using subprocess and returns the output"""
-    cmd_blacklist = ["rm"]
 
     for bad_cmd in c.CMD_BLACKLIST:
         if bad_cmd in inp:
