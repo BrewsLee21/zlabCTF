@@ -34,7 +34,7 @@ def level1():
         
         conn = db.engine.raw_connection()
         cursor = conn.cursor()
-        query = f"SELECT * FROM level1_model WHERE username LIKE 'zlabCTF%'"
+        query = f"SELECT * FROM level1_model WHERE username='{username}'"
         try:
             cursor.execute(query)
         except Exception as e:
