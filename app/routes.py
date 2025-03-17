@@ -35,7 +35,6 @@ def level1():
         conn = db.engine.raw_connection()
         cursor = conn.cursor()
         query = f"SELECT * FROM level1_model WHERE username LIKE 'zlabCTF%'"
-        print(query)
         try:
             cursor.execute(query)
         except Exception as e:
@@ -48,7 +47,6 @@ def level1():
         conn.close()
         
         if not result:
-            print("result empty")
             flash("Špatné uživatelské jméno nebo heslo.")
             return render_template("level_base.html", level_info=c.LEVELS[0], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
         for row in result:
