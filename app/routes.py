@@ -34,8 +34,10 @@ def level1():
         
         conn = db.engine.raw_connection()
         cursor = conn.cursor()
+        query = f"SELECT * FROM level1_model WHERE username LIKE 'zlabCTF%'"
+        print(query)
         try:
-            cursor.execute(f"SELECT * FROM level1_model WHERE username='{username}'")
+            cursor.execute(query)
         except Exception as e:
             print(e)
             return "Byla nalezena syntaktická chyba v SQL dotazu!"
@@ -44,13 +46,9 @@ def level1():
         conn.commit()
         cursor.close()
         conn.close()
-        if len(result) == 1:
-            if argon2.verify(password, result[0][2]):
-                return render_template("profile.html", levels=c.LEVELS, username=result[0][1], messages=randint(0, 200))
-            else:
-                flash("Špatné uživatelské jméno nebo heslo.")
-                return render_template("level_base.html", level_info=c.LEVELS[0], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
-        elif not result:
+        
+        if not result:
+            print("result empty")
             flash("Špatné uživatelské jméno nebo heslo.")
             return render_template("level_base.html", level_info=c.LEVELS[0], flag_form=flag_form, level_form=level_form, levels=c.LEVELS)
         for row in result:
